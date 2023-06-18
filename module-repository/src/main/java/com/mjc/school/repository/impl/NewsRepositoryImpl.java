@@ -1,4 +1,7 @@
-package com.mjc.school.repository;
+package com.mjc.school.repository.impl;
+
+import com.mjc.school.repository.AuthorModel;
+import com.mjc.school.repository.NewsModel;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -48,7 +51,7 @@ public class NewsRepositoryImpl implements NewsRepository {
     }
 
     @Override
-    public NewsModel createNews(NewsModel newsModel) {
+    public NewsModel create(NewsModel newsModel) {
         String title = newsModel.getTitle();
         String content = newsModel.getContent();
         LocalDateTime createDate = newsModel.getCreateDate();
@@ -64,12 +67,12 @@ public class NewsRepositoryImpl implements NewsRepository {
     }
 
     @Override
-    public List<NewsModel> getAllNews() {
+    public List<NewsModel> readAll() {
         return newsModelList;
     }
 
     @Override
-    public NewsModel getNewsById(Long newsId) {
+    public NewsModel readById(Long newsId) {
         return newsModelList.stream()
                 .filter(n -> Objects.equals(n.getId(), newsId))
                 .findFirst()
@@ -77,7 +80,7 @@ public class NewsRepositoryImpl implements NewsRepository {
     }
 
     @Override
-    public NewsModel updateNews(NewsModel newsModel) {
+    public NewsModel update(NewsModel newsModel) {
         Long id = newsModel.getId();
         String title = newsModel.getTitle();
         String content = newsModel.getContent();
@@ -94,7 +97,7 @@ public class NewsRepositoryImpl implements NewsRepository {
     }
 
     @Override
-    public boolean deleteNews(Long newsId) {
+    public boolean delete(Long newsId) {
         return newsModelList.removeIf(n -> Objects.equals(n.getId(), newsId));
     }
 }

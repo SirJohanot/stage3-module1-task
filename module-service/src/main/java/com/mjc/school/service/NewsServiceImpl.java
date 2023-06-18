@@ -1,6 +1,6 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.NewsRepository;
+import com.mjc.school.repository.impl.NewsRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,12 +17,12 @@ public class NewsServiceImpl implements NewsService {
     public NewsDto createNews(NewsDto newsDto) {
         newsDto.setCreateDate(LocalDateTime.now().toString());
         newsDto.setLastUpdateDate(LocalDateTime.now().toString());
-        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.createNews(NewsMapper.INSTANCE.newsDtoToNewsModel(newsDto)));
+        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.create(NewsMapper.INSTANCE.newsDtoToNewsModel(newsDto)));
     }
 
     @Override
     public List<NewsDto> getAllNews() {
-        return repository.getAllNews()
+        return repository.readAll()
                 .stream()
                 .map(NewsMapper.INSTANCE::newsModelToNewsDto)
                 .toList();
@@ -30,18 +30,18 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NewsDto getNewsById(Long newsId) {
-        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.getNewsById(newsId));
+        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.readById(newsId));
     }
 
     @Override
     public NewsDto updateNews(NewsDto newsDto) {
         newsDto.setLastUpdateDate(LocalDateTime.now().toString());
-        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.updateNews(NewsMapper.INSTANCE.newsDtoToNewsModel(newsDto)));
+        return NewsMapper.INSTANCE.newsModelToNewsDto(repository.update(NewsMapper.INSTANCE.newsDtoToNewsModel(newsDto)));
     }
 
     @Override
     public boolean deleteNews(Long newsId) {
-        return repository.deleteNews(newsId);
+        return repository.delete(newsId);
     }
-    
+
 }
