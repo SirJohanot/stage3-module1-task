@@ -1,15 +1,15 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.impl.NewsRepository;
+import com.mjc.school.repository.impl.NewsRepositoryInterface;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class NewsServiceImpl implements NewsService {
 
-    private final NewsRepository repository;
+    private final NewsRepositoryInterface repository;
 
-    public NewsServiceImpl(NewsRepository repository) {
+    public NewsServiceImpl(NewsRepositoryInterface repository) {
         this.repository = repository;
     }
 
