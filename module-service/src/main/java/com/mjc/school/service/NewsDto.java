@@ -1,6 +1,5 @@
 package com.mjc.school.service;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class NewsDto {
@@ -8,15 +7,15 @@ public class NewsDto {
     private Long id;
     private String title;
     private String content;
-    private LocalDateTime createDate;
-    private LocalDateTime lastUpdateDate;
+    private String createDate;
+    private String lastUpdateDate;
     private Long authorId;
     private String authorName;
 
     public NewsDto() {
     }
 
-    public NewsDto(Long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, Long authorId, String authorName) {
+    public NewsDto(Long id, String title, String content, String createDate, String lastUpdateDate, Long authorId, String authorName) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -50,19 +49,19 @@ public class NewsDto {
         this.content = content;
     }
 
-    public LocalDateTime getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDateTime createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
-    public LocalDateTime getLastUpdateDate() {
+    public String getLastUpdateDate() {
         return lastUpdateDate;
     }
 
-    public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
+    public void setLastUpdateDate(String lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
 
