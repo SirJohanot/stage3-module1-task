@@ -14,22 +14,22 @@ public class NewsController {
     }
 
     public NewsDto createNews(NewsDto newsDto) {
-        return null;
+        return newsService.createNews(newsDto);
     }
 
     public List<NewsDto> getAllNews() {
-        return null;
+        return newsService.getAllNews();
     }
 
     public NewsDto getNewsById(Long newsId) {
-        return null;
+        return newsService.getNewsById(newsId);
     }
 
     public NewsDto updateNews(NewsDto newsDto) {
-        return null;
+        return newsService.updateNews(newsDto);
     }
 
     public boolean deleteNews(Long newsId) {
-        return false;
+        return newsService.deleteNews(newsId);
     }
 }
